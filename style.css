@@ -722,3 +722,240 @@ body::before {
     text-align: center;
   }
 }
+
+.section-head > div {
+  position: relative;
+}
+
+.section-line {
+  width: 120px;
+  height: 3px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sky), var(--gold), transparent);
+  box-shadow: 0 0 18px rgba(143,210,255,0.35);
+  animation: lineGlow 3.2s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% { transform: scaleX(0.92); opacity: 0.75; }
+  50% { transform: scaleX(1.05); opacity: 1; }
+}
+
+.timeline-track {
+  position: relative;
+}
+
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(143,210,255,0.0), rgba(143,210,255,0.38), rgba(246,202,118,0.28), rgba(143,210,255,0.0));
+  box-shadow: 0 0 20px rgba(143,210,255,0.18);
+}
+
+.timeline-card {
+  isolation: isolate;
+}
+
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(143,210,255,0.08) 25%, transparent 55%, rgba(246,202,118,0.08) 85%, transparent 100%);
+  transform: translateX(-100%);
+  animation: sweepShine 6s linear infinite;
+  z-index: 0;
+}
+
+.timeline-card::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 22px;
+  top: 22px;
+  border-radius: 999px;
+  background: radial-gradient(circle, var(--gold), var(--sky));
+  box-shadow: 0 0 20px rgba(143,210,255,0.5);
+  animation: beaconPulse 2.2s ease-in-out infinite;
+}
+
+.timeline-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-badge {
+  position: relative;
+  padding-left: 18px;
+}
+
+.timeline-badge::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: var(--sky);
+  box-shadow: 0 0 14px rgba(143,210,255,0.6);
+  animation: beaconPulse 2.2s ease-in-out infinite;
+}
+
+.pulse-card {
+  animation: floatCard 5.5s ease-in-out infinite;
+}
+
+.pulse-card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes sweepShine {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes beaconPulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.education-grid-animated {
+  position: relative;
+}
+
+.edu-card {
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.edu-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -40px -40px auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(143,210,255,0.12), transparent 70%);
+  pointer-events: none;
+  animation: breatheGlow 4.5s ease-in-out infinite;
+}
+
+.edu-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,0.02), transparent 35%, rgba(143,210,255,0.05) 70%, transparent 100%);
+  pointer-events: none;
+}
+
+.edu-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.edu-animated strong {
+  position: relative;
+  display: inline-block;
+}
+
+.edu-animated strong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), var(--sky));
+  transform-origin: left;
+  animation: growLine 2.8s ease-in-out infinite;
+}
+
+.edu-orbit {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid rgba(143,210,255,0.16);
+}
+
+.edu-orbit::before,
+.edu-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.edu-orbit::before {
+  inset: 10px;
+  border: 1px dashed rgba(143,210,255,0.24);
+  animation: spinOrbit 10s linear infinite;
+}
+
+.edu-orbit::after {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(246,202,118,0.55);
+  animation: spinDot 4.2s linear infinite;
+}
+
+.orbit-2::after { animation-duration: 5.2s; }
+.orbit-3::after { animation-duration: 6s; }
+.orbit-4::after { animation-duration: 7s; }
+
+@keyframes spinOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinDot {
+  from { transform: rotate(0deg) translateY(29px) rotate(0deg); }
+  to { transform: rotate(360deg) translateY(29px) rotate(-360deg); }
+}
+
+@keyframes growLine {
+  0%, 100% { transform: scaleX(0.55); opacity: 0.7; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes breatheGlow {
+  0%, 100% { transform: scale(1); opacity: 0.65; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+.shimmer-card {
+  position: relative;
+}
+
+.shimmer-card .edu-tag,
+.shimmer-card .timeline-badge {
+  text-shadow: 0 0 10px rgba(143,210,255,0.16);
+}
+
+@media (max-width: 1024px) {
+  .timeline-track::before {
+    left: 20px;
+    transform: none;
+  }
+}
