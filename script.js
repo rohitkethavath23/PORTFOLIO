@@ -45,3 +45,14 @@ document.querySelectorAll('.tilt').forEach(card => {
     card.style.transform = '';
   });
 });
+
+// Staggered hover glow for experience and education cards
+document.querySelectorAll('.timeline-card, .edu-card').forEach((card) => {
+  card.addEventListener('mouseenter', () => {
+    card.style.boxShadow = '0 20px 60px rgba(0,0,0,0.34), 0 0 28px rgba(143,210,255,0.14)';
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.boxShadow = '';
+  });
+});
